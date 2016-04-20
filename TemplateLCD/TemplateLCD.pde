@@ -8,7 +8,7 @@ void setup() {
 
   // the display can be set to one of these two addresses: 0x3c (default) or 0x3d
   // (they might be listed as 0x7a and 0x7b on the circuit board)
-  //oled = new SSD1306(I2C.list()[0], 0x3c);
+  oled = new SSD1306(I2C.list()[0], 0x3c);
   frameRate(1);
   textSize(36);
   textAlign(CENTER, CENTER);
