@@ -5,12 +5,14 @@ uint8_t dataPin  = 2;    // Yellow wire on Adafruit Pixels
 uint8_t clockPin = 3;    // Green wire on Adafruit Pixels
 // Don't forget to connect the ground wire to Arduino ground,
 // and the +5V wire to a +5V supply
+bool lightOn = false;
 
 // Set the first variable to the NUMBER of pixels. 25 = 25 pixels in a row
 Adafruit_WS2801 strip = Adafruit_WS2801(25, dataPin, clockPin);
 
 void setup() {
   Serial.begin(57600);
+  pinMode(13, OUTPUT);
   strip.begin();
   strip.show();
 }
@@ -39,6 +41,10 @@ void loop() {
   int blue = field.toInt();
 
   // set the respective pixel on the strip
-  strip.setPixelColor(col, red, green, blue);  
+  strip.setPixelColor(col, red, green, blue);
+
+  // blink the led to show it's working
+  lightOn = ~lightOn;
+  digitalWrite(13, lightOn);
 }
 
