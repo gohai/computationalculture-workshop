@@ -41,7 +41,8 @@ void loop() {
   int blue = field.toInt();
 
   // set the respective pixel on the strip
-  strip.setPixelColor(col, red, green, blue);
+  strip.setPixelColor((uint16_t)col, (uint8_t)red, (uint8_t)green, (uint8_t)blue);
+  strip.show();
 
   // blink the led to show it's working
   lightOn = ~lightOn;
