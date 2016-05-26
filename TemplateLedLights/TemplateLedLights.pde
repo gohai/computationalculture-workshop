@@ -57,5 +57,7 @@ void updateLights() {
     // send it out
     //print(out);
     serial.write(out);
+    // XXX: unclear why, but without, not all lights would be lit
+    delay(10);
   }
 }
